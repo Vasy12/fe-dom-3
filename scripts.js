@@ -1,9 +1,11 @@
 "use strict";
 
-const btnClickHandler = ({ target, currentTarget }) => {
-  alert();
+const buttons = document.getElementsByTagName("button");
+
+const btnClickHandler = (event) => {
+  console.dir(event.target.dataset);
 };
 
-for (const btn of document.getElementsByTagName("button")) {
-  btn.addEventListener("click", btnClickHandler);
+for (const btn of buttons) {
+  btn.onclick = btnClickHandler;
 }
