@@ -1,11 +1,18 @@
 "use strict";
 
-const buttons = document.getElementsByTagName("button");
+const buttons = document.querySelectorAll("button[data-color]");
 
-const btnClickHandler = (event) => {
-  console.dir(event.target.dataset);
+const btnColorClickHandler = (e) => {
+  const {
+    target: {
+      parentElement,
+      dataset: { color },
+    },
+  } = e;
+
+  parentElement.style.setProperty("background-color", color);
 };
 
 for (const btn of buttons) {
-  btn.onclick = btnClickHandler;
+  btn.addEventListener("click", btnColorClickHandler);
 }
